@@ -1,0 +1,20 @@
+{
+  "name": "prototipo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafael-machado1/prototype-PI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rafael-machado1/prototype-PI/issues"
+  },
+  "homepage": "https://github.com/rafael-machado1/prototype-PI#readme"
+}
