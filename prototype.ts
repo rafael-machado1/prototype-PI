@@ -82,8 +82,6 @@ function perguntasDesempenho(user: funcionario) {
   return mediaDesempenho;
 }
 
-perguntasDesempenho(funcionario1)
-
 function perguntasPotencial(user: funcionario){
   const questao6 = parseInt(prompt(`O colaborador demonstra disposição para aprender e crescer? (0-10): `)) // Exemplo de questão
   const questao7 = parseInt(prompt(`Ele busca ativamente oportunidades de desenvolvimento profissional? (0-10): `)) // Exemplo de questão
@@ -95,8 +93,6 @@ function perguntasPotencial(user: funcionario){
 
   return mediaPotencial
 }
-
-perguntasPotencial(funcionario1)
 
 
 function validacaoNotas(nota: number){
