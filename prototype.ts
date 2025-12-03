@@ -16,7 +16,7 @@ Após isso passo pra uma função que retorna a posição do candidato no nine b
 |            |            |            |
 |============|============|============|
 
-Perguntas de avaliação de desempenho
+    Perguntas de avaliação de desempenho
 
     • O colaborador atinge as metas e objetivos estabelecidos?
     • O desempenho é consistente e está acima das expectativas?
@@ -57,6 +57,18 @@ const funcionario1 = new funcionario("Rafael", 12389018927, 'RH') // Funcionári
 
 // =========- Funções -========= \\
 
+function autoAvaliacao(user: funcionario){
+  const autoQuestao1 = parseInt(prompt("Eu reconheço proativamente minhas maiores conquistas no último ciclo e aplico consistentemente os aprendizados práticos delas em meus projetos futuros."))
+  const autoQuestao2 = parseInt(prompt("Eu identifico e reflito ativamente sobre erros ou decisões passadas e utilizo essa reflexão para melhorar meu desempenho e minhas escolhas daqui para frente."))
+  const autoQuestao3 = parseInt(prompt("Eu consigo identificar com clareza quais tarefas me energizam e quais me desgastam, e ajusto minha abordagem de trabalho para maximizar a satisfação e minimizar o desgaste."))
+  const autoQuestao4 = parseInt(prompt("Eu tenho um plano claro para desenvolver uma habilidade ou competência específica no próximo período que terá um alto impacto positivo na minha carreira ou na minha equipe."))
+  const autoQuestao5 = parseInt(prompt("Minhas ações e decisões diárias de trabalho estão totalmente alinhadas e demonstram os valores centrais da empresa."))
+
+  const mediaAutoAvaliacao = (autoQuestao1 + autoQuestao2 + autoQuestao3 + autoQuestao4 + autoQuestao5) / 5
+
+  return mediaAutoAvaliacao;
+}
+
 function perguntasDesempenho(user: funcionario) {
   console.log(`[LOGIN] Você agora está logado como ${user.nome} de CPF ${user.cpf}`)
   const questao1 = parseInt(prompt(`O colaborador atinge as metas e objetivos estabelecidos? (0-10): `)) // Exemplo de questão
@@ -67,7 +79,7 @@ function perguntasDesempenho(user: funcionario) {
 
   const mediaDesempenho: number = (questao1 + questao2 + questao3 + questao4 + questao5) / 5
 
-  return (mediaDesempenho);
+  return mediaDesempenho;
 }
 
 perguntasDesempenho(funcionario1)
@@ -81,7 +93,7 @@ function perguntasPotencial(user: funcionario){
 
   const mediaPotencial = (questao6 + questao7 + questao8 + questao9 + questao10) / 5
 
-  return (mediaPotencial)
+  return mediaPotencial
 }
 
 perguntasPotencial(funcionario1)
