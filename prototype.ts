@@ -1,3 +1,8 @@
+/*Neste exercício você irá realizar usando typescript um MVP do Projeto integrador. Você deve criar de maneira bastante 
+simplificada uma avaliação de desempenho.
+O usuário deverá receber as perguntas no console e responder de maneira objetiva de acordo com uma escala definida por você. 
+Ao final, com base nas respostas do usuário, você irá classificar em que quadrante do nine box ele se encontra.
+*/
 /*
 
 -- Objetivo do programa --
@@ -34,7 +39,7 @@ Após isso passo pra uma função que retorna a posição do candidato no nine b
 
 */
 import * as promptSync from 'prompt-sync'; // Biblioteca utilizada para fazer as perguntas [ No código oficial, essa pergunta não vai ser feita no terminal (provavelmente) ]
-const prompt = PromptSync();
+const prompt = promptSync();
 
 
 type tipoDeDepartamento = 'RH' | 'TI' | 'Financeiro' // O type funciona como uma forma de lista para validar o departamento do usuário
@@ -71,11 +76,11 @@ function autoAvaliacao(user: funcionario){
 
 function perguntasDesempenho(user: funcionario) {
   console.log(`[LOGIN] Você agora está logado como ${user.nome} de CPF ${user.cpf}`)
-  const questao1 = parseInt(prompt(`O colaborador atinge as metas e objetivos estabelecidos? (0-10): `)) // Exemplo de questão
-  const questao2 = parseInt(prompt(`O desempenho é consistente e está acima das expectativas? (0-10): `)) // Exemplo de questão
-  const questao3 = parseInt(prompt(`Ele entrega o trabalho com qualidade e no prazo? (0-10): `)) // Exemplo de questão
-  const questao4 = parseInt(prompt(`O profissional demonstra organização e iniciativa em suas tarefas? (0-10): `)) // Exemplo de questão
-  const questao5 = parseInt(prompt(`Ele lida bem com os desafios e situações inesperadas? (0-10): `)) // Exemplo de questão
+  const questao1 = parseInt(prompt(`O colaborador atinge as metas e objetivos estabelecidos? (0-5): `)) // Exemplo de questão
+  const questao2 = parseInt(prompt(`O desempenho é consistente e está acima das expectativas? (0-5): `)) // Exemplo de questão
+  const questao3 = parseInt(prompt(`Ele entrega o trabalho com qualidade e no prazo? (0-5): `)) // Exemplo de questão
+  const questao4 = parseInt(prompt(`O profissional demonstra organização e iniciativa em suas tarefas? (0-5): `)) // Exemplo de questão
+  const questao5 = parseInt(prompt(`Ele lida bem com os desafios e situações inesperadas? (0-5): `)) // Exemplo de questão
 
   const mediaDesempenho: number = (questao1 + questao2 + questao3 + questao4 + questao5) / 5
 
@@ -83,43 +88,38 @@ function perguntasDesempenho(user: funcionario) {
 }
 
 function perguntasPotencial(user: funcionario){
-  const questao6 = parseInt(prompt(`O colaborador demonstra disposição para aprender e crescer? (0-10): `)) // Exemplo de questão
-  const questao7 = parseInt(prompt(`Ele busca ativamente oportunidades de desenvolvimento profissional? (0-10): `)) // Exemplo de questão
-  const questao8 = parseInt(prompt(`Ele se mostra motivado e engajado com a missão da equipe e da empresa? (0-10): `)) // Exemplo de questão
-  const questao9 = parseInt(prompt(`Ele é receptivo a feedback e os aplica em seu trabalho? (0-10): `)) // Exemplo de questão
-  const questao10 = parseInt(prompt(`Demonstra potencial de liderança, como aptidão ou desejo de assumir posições de liderança? (0-10): `)) // Exemplo de questão
+  console.log(`[LOGIN] Você agora está logado como ${user.nome} de CPF ${user.cpf}`)
+  const questao6 = parseInt(prompt(`O colaborador demonstra disposição para aprender e crescer? (0-5): `)) // Exemplo de questão
+  const questao7 = parseInt(prompt(`Ele busca ativamente oportunidades de desenvolvimento profissional? (0-5): `)) // Exemplo de questão
+  const questao8 = parseInt(prompt(`Ele se mostra motivado e engajado com a missão da equipe e da empresa? (0-5): `)) // Exemplo de questão
+  const questao9 = parseInt(prompt(`Ele é receptivo a feedback e os aplica em seu trabalho? (0-5): `)) // Exemplo de questão
+  const questao10 = parseInt(prompt(`Demonstra potencial de liderança, como aptidão ou desejo de assumir posições de liderança? (0-5): `)) // Exemplo de questão
 
   const mediaPotencial = (questao6 + questao7 + questao8 + questao9 + questao10) / 5
 
   return mediaPotencial
 }
 
+const desempenho = perguntasDesempenho(funcionario1)
+const potencial = perguntasPotencial(funcionario1)
 
-function validacaoNotas(nota: number){
-  if (nota <= 6){
-    console.log("\n [RESULTADO] Nota abaixo do esperado")    
-  } else if (nota > 6 && nota <= 8) {
-    console.log("\n [RESULTADO] Nota acima do esperado, parabéns!")
-  } else if (nota > 8 && nota <= 10) {
-    console.log("\n [RESULTADO] Nota extremamente acima do esperado, parabéns!")
-  }
-}
-
-function nineBox(desempenho: number, potencial: number){
-  if (desempenho <= 6){
+function nineBox(des: typeof desempenho, pot: typeof potencial){
+  if (des <= 1 && pot <= 1){
     console.log(`
-    |============|============|============|
-    |            |            |            |
-    |            |            |            |
-    |============|============|============|
-    |            |            |            |
-    |            |            |            |
-    |============|============|============|
-    | Sua posição|            |            |
-    |  é aqui    |            |            |
-    |============|============|============|
+      /============|============|============\ Alto
+      |            |            |            | Potencial
+      |            |            |            |
+      |============|============|============|
+      |            |            |            | Médio 
+      |            |            |            | Potencial
+      |============|============|============|
+      | Sua posição|            |            | Baixo
+      |   é aqui   |            |            | Potencial
+      \============|============|============/
+        Baixo         Médio         Alto
+        Desempenho    Desempenho    Desempenho
     `)
-  } else if (desempenho > 6 && desempenho <= 8){
+  } else if (des <= 3 && pot <= 3){
     console.log(`
       |============|============|============|
       |            |            |            |
@@ -132,7 +132,7 @@ function nineBox(desempenho: number, potencial: number){
       |            |            |            |
       |============|============|============|
     `)
-  } else {
+  } else if (des <= 5 && pot <= 5){
     console.log(`
       |============|============|============|
       |            |            | Sua posição|
@@ -150,25 +150,4 @@ function nineBox(desempenho: number, potencial: number){
 
 // =========- Teste das funções -========= \\
 
-const desempenho = perguntasDesempenho(funcionario1)
-const potencial = perguntasPotencial(funcionario1)
-
-
-/*
-
-  Para cálculo de desempenho x potencial
-
-      /============|============|============\ Alto
-      |            |            | Sua posição| Potencial
-      |            |            |  é aqui    |
-      |============|============|============|
-      |            |            |            | Médio 
-      |            |            |            | Potencial
-      |============|============|============|
-      |            |            |            | Baixo
-      |            |            |            | Potencial
-      \============|============|============/
-        Baixo         Médio         Alto
-        Desempenho    Desempenho    Desempenho
-
-*/
+nineBox(desempenho, potencial)
