@@ -40,17 +40,23 @@ const prompt = PromptSync();
 type tipoDeDepartamento = 'RH' | 'TI' | 'Financeiro' // O type funciona como uma forma de lista para validar o departamento do usuário
 
 class funcionario { // Maneira de armazenar informações do usuário
-  nome: string
+  nome: boolean
   cpf: number
   departamento: tipoDeDepartamento // Definindo o tipo do atributo como as possibilidades existentes
 
-  constructor(nome: string, cpf: number, departamento: tipoDeDepartamento){
+  constructor(nome: boolean, cpf: number, departamento: tipoDeDepartamento){
     this.nome = nome
     this.cpf = cpf
     this.departamento = departamento
   }
 }
 
+
+function testeoenis(user: funcionario){
+  if (user.nome == true) {
+    //
+  }
+}
 // =========- Instâncias -========= \\
 
 const funcionario1 = new funcionario("Rafael", 12389018927, 'RH') // Funcionário teste

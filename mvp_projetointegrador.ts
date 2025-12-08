@@ -51,7 +51,7 @@ let indiceQuestao = 0;
 
 const fazerPergunta = () => {
     if (indiceQuestao < questoes.length) {
-        rl.question(questoes[indiceQuestao].pergunta + ' ', (resposta: string) => {
+        prompt((questoes[indiceQuestao].pergunta + ' ', (resposta: string)) => {
             const respostaNum = parseInt(resposta);
             if (respostaNum >= 1 && respostaNum <= 5) {
                 respostas.push(respostaNum);
@@ -68,25 +68,4 @@ const fazerPergunta = () => {
     }
 };
 
-const avaliarDesempenho = () => {
-    const somaRespostas = respostas.reduce((a, b) => a + b, 0);
-    const media = somaRespostas / respostas.length;
-
-    let quadrante: string;
-
-    if (media >= 4) {
-        quadrante = 'Alta Performance / Alto Potencial';
-    } else if (media >= 3) {
-        quadrante = 'Boa Performance / Potencial Moderado';
-    } else if (media >= 2) {
-        quadrante = 'Performance Média / Baixo Potencial';
-    } else {
-        quadrante = 'Baixa Performance / Baixo Potencial';
-    }
-
-    console.log(`A média do colaborador foi: ${media}`);
-    console.log(`O colaborador se enquadra no quadrante: ${quadrante}`);
-};
-
-fazerPergunta();
 
