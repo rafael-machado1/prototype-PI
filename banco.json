@@ -1,0 +1,20 @@
+[
+  {
+    "nome": "Rafael",
+    "id": "16485834",
+    "departamento": "RH",
+    "permissao": "admin"
+  },
+  {
+    "nome": "Joana",
+    "id": "05284771",
+    "departamento": "TI",
+    "permissao": "user"
+  },
+  {
+    "nome": "Pedro",
+    "id": "17253720",
+    "departamento": "Financeiro",
+    "permissao": "user"
+  }
+]

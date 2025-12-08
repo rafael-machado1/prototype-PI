@@ -33,7 +33,7 @@ Após isso passo pra uma função que retorna a posição do candidato no nine b
     • Demonstra potencial de liderança, como aptidão ou desejo de assumir posições de liderança?
 
 */
-import PromptSync from "prompt-sync"; // Biblioteca utilizada para fazer as perguntas [ No código oficial, essa pergunta não vai ser feita no terminal (provavelmente) ]
+import * as promptSync from 'prompt-sync'; // Biblioteca utilizada para fazer as perguntas [ No código oficial, essa pergunta não vai ser feita no terminal (provavelmente) ]
 const prompt = PromptSync();
 
 
