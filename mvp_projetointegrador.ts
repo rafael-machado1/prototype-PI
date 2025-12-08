@@ -7,22 +7,34 @@ Ao final, com base nas respostas do usuário, você irá classificar em que quad
 import PromptSync from "prompt-sync"; // Biblioteca utilizada para fazer as perguntas [ No código oficial, essa pergunta não vai ser feita no terminal (provavelmente) ]
 const prompt = PromptSync();
 
+
+type tipoDeDepartamento = 'RH' | 'TI' | 'Financeiro' // O type funciona como uma forma de lista para validar o departamento do usuário
+type tipoDePermissao = 'admin' | 'usuario'
+
+interface Icolaborador {
+    nome: string
+    cpf: number
+    departamento: tipoDeDepartamento 
+    permissao: tipoDePermissao
+}
+
 interface IQuestao {
     pergunta: string;
     peso: number;
 }
 
-type tipoDeDepartamento = 'RH' | 'TI' | 'Financeiro' // O type funciona como uma forma de lista para validar o departamento do usuário
 
-class funcionario { // Maneira de armazenar informações do usuário
+class funcionario implements Icolaborador{ // Maneira de armazenar informações do usuário
   nome: string
   cpf: number
   departamento: tipoDeDepartamento // Definindo o tipo do atributo como as possibilidades existentes
+  permissao: tipoDePermissao
 
-  constructor(nome: string, cpf: number, departamento: tipoDeDepartamento){
+  constructor(nome: string, cpf: number, departamento: tipoDeDepartamento, permissao: tipoDePermissao){
     this.nome = nome
     this.cpf = cpf
     this.departamento = departamento
+    this.permissao = permissao
   }
 }
 
