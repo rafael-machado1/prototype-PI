@@ -11,8 +11,10 @@
     "module": "nodenext",
     "moduleResolution": "nodenext",
     "resolveJsonModule": true,
-    "target": "esnext",
+    "target": "es6",
     "types": [],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     // For nodejs:
     // "lib": ["esnext"],
     // "types": ["node"],
